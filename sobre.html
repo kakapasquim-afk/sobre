@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - SENAC Eventos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #004B93;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .logo-text p {
+            font-size: 13px;
+            color: #a3c9f5;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #F7941D;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: #004B93;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: #F7941D;
+            color: white;
+        }
+
+        .hero-about {
+            background: linear-gradient(135deg, #004B93 0%, #0066CC 50%, #004B93 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-about h2 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-about p {
+            font-size: 20px;
+            color: #a3c9f5;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-content {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+        }
+
+        .about-intro h3 {
+            font-size: 36px;
+            color: #004B93;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        .about-intro p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .team-section {
+            padding: 60px 0;
+            background-color: #f9fafb;
+        }
+
+        .team-section h3 {
+            font-size: 36px;
+            color: #004B93;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .department {
+            background-color: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .department:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .department-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 3px solid #F7941D;
+        }
+
+        .department-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #004B93 0%, #0066CC 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .department-title {
+            flex: 1;
+        }
+
+        .department-title h4 {
+            font-size: 24px;
+            color: #004B93;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .department-title .role {
+            font-size: 14px;
+            color: #F7941D;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .leader {
+            background-color: #FFF5E6;
+            border-left: 4px solid #F7941D;
+            padding: 16px 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .leader-label {
+            font-size: 12px;
+            color: #F7941D;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .leader-name {
+            font-size: 20px;
+            color: #004B93;
+            font-weight: bold;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .member-card {
+            background-color: #f9fafb;
+            padding: 16px 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .member-card:hover {
+            background-color: #004B93;
+            color: white;
+            border-color: #004B93;
+            transform: translateY(-2px);
+        }
+
+        .member-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .member-card:hover .member-name {
+            color: white;
+        }
+
+        .ceo-section {
+            background: linear-gradient(135deg, #004B93 0%, #0066CC 100%);
+            border-radius: 16px;
+            padding: 60px;
+            margin-bottom: 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .ceo-section h4 {
+            font-size: 16px;
+            color: #a3c9f5;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .ceo-section .ceo-name {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .ceo-section .ceo-title {
+            font-size: 20px;
+            color: #F7941D;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: #004B93;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-column p {
+            color: #a3c9f5;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #a3c9f5;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #F7941D;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            text-align: center;
+            color: #a3c9f5;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero-about h2 {
+                font-size: 32px;
+            }
+
+            .hero-about p {
+                font-size: 16px;
+            }
+
+            .about-intro h3 {
+                font-size: 28px;
+            }
+
+            .team-section h3 {
+                font-size: 28px;
+            }
+
+            .department {
+                padding: 24px;
+            }
+
+            .ceo-section {
+                padding: 40px 24px;
+            }
+
+            .ceo-section .ceo-name {
+                font-size: 36px;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-box">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura%20de%20tela%202025-11-04%20115113-FvUcbu1aBhRqiB8rgcaOfvA94fbuVU.png" alt="SENAC Logo">
+                    </div>
+                    <div class="logo-text">
+                        <h1>SENAC Eventos</h1>
+                        <p>Conectando conhecimento</p>
+                    </div>
+                </div>
+                <nav>
+                    <a href="compra.html">Comprar Ingresso</a>
+                    <a href="index.html">Categorias</a>
+                    <a href="sobre.html">Sobre</a>
+                    <a href="login.html" class="btn btn-outline">Entrar</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-about">
+        <div class="container">
+            <h2>Projeto Integrador 2025</h2>
+            <p>O SENAC CONECTA é um Projeto Integrador desenvolvido por alunos do 1º ano do Ensino Médio do SESC SENAC em 2025. O objetivo do projeto é criar uma plataforma de eventos que conecta pessoas a experiências, com inovação, organização e profissionalismo.</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-intro">
+                <h3>Nossa Missão</h3>
+                <p>Conectar pessoas a experiências transformadoras através de uma plataforma inovadora de eventos. Desenvolvemos soluções que facilitam o acesso ao conhecimento e promovem o networking profissional.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h3>Nossa Equipe</h3>
+
+            <div class="ceo-section">
+                <h4>Liderança Executiva</h4>
+                <div class="ceo-name">Kayke</div>
+                <div class="ceo-title">CEO - Chief Executive Officer</div>
+            </div>
+
+            <div class="department">
+                <div class="department-header">
+                    <div class="department-icon">P</div>
+                    <div class="department-title">
+                        <h4>Departamento de Programação</h4>
+                        <span class="role">Tecnologia & Desenvolvimento</span>
+                    </div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Gerente</div>
+                    <div class="leader-name">Raul</div>
+                </div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-name">Gianluca</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Kamal</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Pedro</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Alexandre</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Davi</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Jasmine</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Felipe</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">João Vitor</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="department">
+                <div class="department-header">
+                    <div class="department-icon">M</div>
+                    <div class="department-title">
+                        <h4>Departamento de Marketing</h4>
+                        <span class="role">Comunicação & Branding</span>
+                    </div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Gerente</div>
+                    <div class="leader-name">Manuela</div>
+                </div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-name">Luiz Vidal</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">João Pedro</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Luca</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Custódio</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Maira Julia</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="department">
+                <div class="department-header">
+                    <div class="department-icon">N</div>
+                    <div class="department-title">
+                        <h4>Departamento de Negócios</h4>
+                        <span class="role">Estratégia & Gestão</span>
+                    </div>
+                </div>
+                <div class="leader">
+                    <div class="leader-label">Gerente</div>
+                    <div class="leader-name">Luan</div>
+                </div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-name">João Guilherme</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Cecília</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Arthur</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Any</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Ana Laura</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">Ana Clara</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-name">João Gabriel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>SENAC Eventos</h4>
+                    <p>Plataforma oficial de eventos do SENAC. Conectando pessoas ao conhecimento.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Eventos</h4>
+                    <ul>
+                        <li><a href="#">Próximos Eventos</a></li>
+                        <li><a href="#">Eventos Online</a></li>
+                        <li><a href="#">Eventos Presenciais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre o SENAC</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SENAC - Serviço Nacional de Aprendizagem Comercial. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
